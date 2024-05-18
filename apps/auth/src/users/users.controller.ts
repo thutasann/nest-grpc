@@ -1,34 +1,48 @@
 import { Controller } from '@nestjs/common';
-import { MessagePattern, Payload } from '@nestjs/microservices';
 import { UsersService } from './users.service';
-import { CreateUserDto, UpdateUserDto } from '@app/common';
+import {
+  CreateUserDto,
+  Empty,
+  FindOneUserDto,
+  PaginationDto,
+  UpdateUserDto,
+  User,
+  Users,
+  UsersServiceController,
+  UsersServiceControllerMethods,
+} from '@app/common';
+import { Observable } from 'rxjs';
 
 @Controller()
-export class UsersController {
+@UsersServiceControllerMethods()
+export class UsersController implements UsersServiceController {
   constructor(private readonly usersService: UsersService) {}
 
-  @MessagePattern('createUser')
-  create(@Payload() createUserDto: CreateUserDto) {
-    return this.usersService.create(createUserDto);
+  createUser(request: CreateUserDto): User | Observable<User> | Promise<User> {
+    return this.usersService.create(request);
   }
 
-  @MessagePattern('findAllUsers')
-  findAll() {
+  findAllUsers(request: Empty): Users | Observable<Users> | Promise<Users> {
     return this.usersService.findAll();
   }
 
-  @MessagePattern('findOneUser')
-  findOne(@Payload() id: string) {
-    return this.usersService.findOne(id);
+  findOneUser(
+    request: FindOneUserDto,
+  ): User | Observable<User> | Promise<User> {
+    return this.usersService.findOne(request.id);
   }
 
-  @MessagePattern('updateUser')
-  update(@Payload() updateUserDto: UpdateUserDto) {
-    return this.usersService.update(updateUserDto.id, updateUserDto);
+  updateUser(request: UpdateUserDto): User | Observable<User> | Promise<User> {
+    return this.usersService.update(request.id, request);
   }
 
-  @MessagePattern('removeUser')
-  remove(@Payload() id: string) {
-    return this.usersService.remove(id);
+  removeUser(request: FindOneUserDto): User | Observable<User> | Promise<User> {
+    return this.usersService.remove(request.id);
+  }
+
+  queryUsers(
+    paginationDtoStream: Observable<PaginationDto>,
+  ): Observable<Users> {
+    return this.usersService.queryUsers(paginationDtoStream);
   }
 }
