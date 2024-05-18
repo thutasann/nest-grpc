@@ -10,6 +10,12 @@ This is the mini microservices with `nest.js` and `gRPC`.
 nest generate app auth
 ```
 
+### Generate Resource
+
+```bash
+nest g resource users
+```
+
 ### Run Service
 
 ```bash
