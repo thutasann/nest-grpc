@@ -21,3 +21,9 @@ nest g resource users
 ```bash
 yarn start:dev auth
 ```
+
+### proto generate
+
+```bash
+protoc --plugin=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./ --ts_proto_opt=nestJs=true ./proto/auth.proto
+```

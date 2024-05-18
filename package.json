@@ -29,6 +29,8 @@
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
+    "@grpc/grpc-js": "^1.10.8",
+    "@grpc/proto-loader": "^0.7.13",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",
@@ -48,6 +50,7 @@
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.3",
     "ts-node": "^10.9.1",
+    "ts-proto": "^1.176.0",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.3"
   },
