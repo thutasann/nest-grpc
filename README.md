@@ -16,6 +16,12 @@ nest generate app auth
 nest g resource users
 ```
 
+### Generate Lib
+
+```bash
+nest g lib common
+```
+
 ### Run Service
 
 ```bash
