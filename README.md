@@ -30,6 +30,10 @@ nest g lib common
 ### Run Service
 
 ```bash
+yarn start:dev apigateway
+```
+
+```bash
 yarn start:dev auth
 ```
 
