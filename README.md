@@ -1,6 +1,11 @@
 # Nestjs gRPC Microservices
 
-This is the mini microservices with `nest.js` and `gRPC`.
+This is the mini microservices with `nestjs` and `gRPC`.
+
+## Tech Stacks
+
+- nestjs
+- gRPC
 
 ## Script
 
